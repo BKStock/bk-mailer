@@ -40,7 +40,10 @@
     </form>
 
     <p class="is-size-7 mt-2 has-text-grey-light">
-      <template v-if="settings['privacy.individual_tracking']">
+      <template v-if="settings['privacy.disable_tracking']">
+        {{ $t('analytics.trackingDisabled') }}
+      </template>
+      <template v-else-if="settings['privacy.individual_tracking']">
         {{ $t('analytics.isUnique') }}
       </template>
       <template v-else>
